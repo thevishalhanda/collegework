@@ -1,3 +1,4 @@
+import React from 'react'
 import { signTypo } from "../global/style/styleStore/typoStyle";
 import { btnStyle } from "../global/style/styleStore/buttonStyle";
 import { textStyle } from "../global/style/styleStore/textStyle";
@@ -5,17 +6,20 @@ import { cardStyle } from "../global/style/styleStore/cardStyle";
 import { useState } from "react";
 import FirebaseService from "../services/firebaseService";
 import AuthOptions from "../global/reusableComponents/authOptions";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../global/routes/route";
 
 const { Grid, Card, CardContent, Typography, Container, TextField, Button } = require("@material-ui/core")
 
-const SignPage = () => {
-
+const SigninPage = () => {
 
     const [user, setUser] = useState({
         name: "",
         email: "",
         password: ""
     })
+
+    let navigate = useNavigate();
 
     const handleChange = (event) => {
         const data = { ...user };
@@ -32,11 +36,15 @@ const SignPage = () => {
 
     return (
         <>
+
+
+
             <Grid
                 container justifyContent="center"
                 style={
                     {
-                        background: "#E5E6E9",
+                        background: "whitesmoke",
+
                         height: '100vh'
 
                     }
@@ -46,7 +54,8 @@ const SignPage = () => {
                 <Grid
                     style={
                         {
-                            background: "#E5E6E9"
+                            background: "whitesmoke",
+
                         }
                     }
                     items
@@ -58,18 +67,15 @@ const SignPage = () => {
                     xs={12}
                 >
                     <Card elevation={0}
-                        style={
-                            {
-                                background: "#E5E6E9"
-
-                            }
-                        }
+                        style={{
+                            background: "whitesmoke",
+                        }}
                     >
                         <CardContent>
                             <Typography
                                 style={signTypo.h1}
                             >
-                                Sign Up to <br />
+                                Sign In to <br />
                                 Save Notes
                             </Typography>
 
@@ -78,8 +84,19 @@ const SignPage = () => {
                             >   If  you have an account <br />
                                 you     can <Button
                                     style={btnStyle.type2}
-                                > Login here</Button>
+                                    onClick={event => {
+                                        navigate(routes.signUp)
+                                    }}
+                                > Register here</Button>
                             </Typography>
+
+                            <div
+                                style={{
+
+                                }}
+                            >
+
+                            </div>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -145,4 +162,4 @@ const SignPage = () => {
     )
 }
 
-export default SignPage;
+export default SigninPage;

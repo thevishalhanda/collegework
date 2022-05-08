@@ -12,5 +12,16 @@ export const btnStyle = {
         fontWeight:"600",
         fontSize:"90%",
         textTransform: 'none'
+    },
+    type3:{
+        fontFamily:"Poppins",
+        color:"white",
+        background:"black",
+        // fontWeight:"600",
+        fontSize:"90%",
+        border:'10px',
+        height:"30px",
+        textTransform: 'none'
+
     }
 }
